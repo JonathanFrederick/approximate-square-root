@@ -1,19 +1,20 @@
 """A program that asks the user for a positive number and then outputs the approximated square root of the number."""
 while True:
     try:
-        num = float(input('Please input a positive number:  '))
-        if num < 0:
-            num/0
+        num = float(input('Please input a number:  '))
         break
     except:
-        print("ERROR: Not valid input (not a positive number)")
+        print("ERROR: Input not a number")
         continue
 
-
-print(num)
+#print(num)
 
 def sqrt (num):
     """Approximates square root of parameter to 2 decimal places"""
+    neg=""
+    if num < 0:
+        num = abs(num)
+        neg = 'i'
     guess1 = 1
     guess2 = 0
     count = 0
@@ -21,7 +22,7 @@ def sqrt (num):
         count += 1
         guess2 = guess1
         guess1 = (guess1 + num/guess1)/2
-        print("This loop has iterated", count, "times.")
-    return guess1
+        print("This loop has iterated", count, "times and the current guess is", str(guess1)+".")
+    return (str(round(guess1,2))+neg)
 
-print("The square root of", num, "is", round(sqrt(num),2))
+print("The square root of", num, "is", sqrt(num))
