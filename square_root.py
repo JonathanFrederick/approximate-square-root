@@ -9,20 +9,20 @@ while True:
 
 #print(num)
 
-def sqrt (num):
+def sq_rt (num):
     """Approximates square root of parameter to 2 decimal places"""
     neg=""
     if num < 0:
         num = abs(num)
         neg = 'i'
-    guess1 = 1
-    guess2 = 0
+    guess_1 = 1
+    guess_2 = 0
     count = 0
-    while round(guess1, 2) != round(guess2, 2):
+    while round(guess_1, 2) != round(guess_2, 2):
         count += 1
-        guess2 = guess1
-        guess1 = (guess1 + num/guess1)/2
-        print("This loop has iterated", count, "times and the current guess is", str(guess1)+".")
-    return (str(round(guess1,2))+neg)
+        guess_2 = guess_1
+        guess_1 = (guess_1 + num/guess_1)/2
+        print("This loop has iterated", count, "times and the current guess is", str(guess_1)+".")
+    return (str(round(guess_1,2))+neg)
 
-print("The square root of", num, "is", sqrt(num))
+print("The square root of", num, "is", sq_rt(num))
